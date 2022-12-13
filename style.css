@@ -1,0 +1,253 @@
+/*
+em --> 1em = 1 * parent's font size...similarly 3em = 3 * parent's font size
+rem --> 1rem = 1 * html tag's font size...similarly 3rem = 3 * html tag's font size
+vw --> 50vw = 50% of viewport width/device width in which the website is opened
+vh --> 50vh = 50% of viewport height/device height in which the website is opened
+% --> width : 50% = 50% of parent's width 
+*/
+
+/* 
+A fixed position element is positioned relative to the viewport, or the browser window itself. The viewport doesn't change when the window is scrolled, so a fixed positioned element will stay right where it is when the page is scrolled
+Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as relative positioned when window is fixed initially, at which point it is treated as fixed positioned
+*/
+
+/* Variable Declaration */
+
+:root{
+    --taskbarContainer: #1E2022;
+    --cellIdentifier: #52616B;
+    --border: #1E2022;
+    --fontColor : #F0F5F9;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* box-sizing: border-box  --> Represent content size, padding, border is inclusive of element size provided */
+
+.taskbarContainer{
+    height: 9.5vh;
+    background-color: var(--taskbarContainer);
+    z-index: 2;
+    display: flex;
+}
+
+/* 
+Z Index ( z-index ) is a CSS property that defines the order of overlapping HTML elements. Elements with a higher index will be placed on top of elements with a lower index.
+*/
+
+.cellContainer{
+    height: calc(100vh - 14vh);
+    background-color: #F0F5F9;
+    position: relative;
+    overflow: auto;
+}
+
+/* The overflow property specifies whether to clip the content or to add scrollbars when the content of an element is too big to fit in the specified area 
+    scroll - The overflow is clipped, and a scrollbar is added to see the rest of the content
+    auto - Similar to scroll, but it adds scrollbars only when necessary
+    overflow-x - auto --> When content overflow in x direction
+*/
+
+/* Abstract --> calc() --> The calc() function performs numeric calculation to be used as the property value. */
+
+.sheetAnchor{
+    height: 4.5vh;
+    background-color: var(--taskbarContainer);
+    display: flex;
+    align-items: center;
+}
+
+.appendElement{
+    /* background-color: var(--fontColor); */
+    width: 3rem;
+    height: 4.5vh;
+}
+
+.appendElement i{
+    height: 100%;
+    width: 100%;
+    color: var(--fontColor);
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalogueElement{
+    height: 4.5vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sheetElement{
+    color: var(--fontColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 6rem;
+    cursor: pointer;
+}
+
+/* 
+The cursor property specifies the mouse cursor to be displayed, when pointing over an element.
+The font-weight property represent how thick or thin characters in text should be displayed
+*/
+
+.activeSheetElement{
+    font-weight: bold;
+    background-color: var(--fontColor);
+    color: var(--taskbarContainer);
+}
+
+/* The :hover selector is used to select elements when you mouse over them */
+
+/* Style cell Element */
+
+.rowElement{
+    display: flex;
+}
+
+.cellElement{
+    height: 20px;
+    width: 125px;
+    border-bottom: thin solid var(--border);
+    border-left: thin solid var(--border);
+    /* overflow-x: auto; */
+    outline: none;
+}
+
+.column-identifier-row{
+    position: absolute;
+    left: 40px;
+    z-index: 2;
+}
+
+/* position : absolute --> Element removal, document flow */
+
+.column-identifier-element{
+    text-align: center;
+    background-color: var(--cellIdentifier);
+}
+
+.row-identifier-column{
+    height: calc(100vh - 13.5vh);
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    width: 40px;
+    z-index: 2;
+}
+
+.row-identifier-element{
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    /* color: var(--fontColor); */
+    background-color: var(--cellIdentifier);
+    border-bottom: thin solid var(--border);
+    border-left: thin solid var(--border);
+}
+
+/* border-color: red; border-style: dashed; border-width: 1px 1px 0 1px --> Shorthand */
+/* border-shorthand --> border : border-thickness border-style border-color */
+/* text-align: center --> Center a text, within an element */
+
+.top-left-cell{
+    width: 40px;
+    height: 20px;
+    border-left: thin solid var(--border);
+    /* border-bottom: 0.01px solid var(--border); */
+    background-color: var(--cellIdentifier);
+    position: absolute;
+    left: 0px;
+    z-index: 3;
+}
+
+.mutable-cell-container{
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+.assistContainer{
+    height: 2.5vh;
+    position: absolute;
+    display: flex;
+    top:7vh;
+}
+
+.labelElement{
+    height: 100%;
+    width: 40px;
+    border-right: thin solid var(--border);
+    background-color: var(--taskbarContainer);
+    color: var(--fontColor);
+    outline: none;
+    text-align: center;
+}
+
+.formulaElement{
+    height: 100%;
+    width: calc(100vw - 40px);
+    background-color: var(--fontColor);
+    outline: none;
+    text-align: center
+}
+
+.fontDecorationElement{
+    height: 7vh;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* UI enhancement, font decoration element */
+.fontDecorationElement div{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: var(--fontColor);
+    color: var(--taskbarContainer);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+
+/* The :hover selector is used to select HTML elements when you mouse over them */
+
+/* .fontDecorationElement div:hover{
+    background-color: var(--fontColor);
+    color: var(--taskbarContainer);
+    cursor: pointer;
+} */
+
+.activeCellIdentifier{
+    background-color: seagreen;
+    color: var(--fontColor);
+}
+
+/* The opacity property specifies the opacity/transparency of an element */
+
+.activeFontDecoration{
+    opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
