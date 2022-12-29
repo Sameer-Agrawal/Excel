@@ -58,6 +58,7 @@ Z Index ( z-index ) is a CSS property that defines the order of overlapping HTML
 .sheetAnchor{
     height: 4.5vh;
     background-color: var(--taskbarContainer);
+
     display: flex;
     align-items: center;
 }
@@ -71,8 +72,10 @@ Z Index ( z-index ) is a CSS property that defines the order of overlapping HTML
 .appendElement i{
     height: 100%;
     width: 100%;
+
     color: var(--fontColor);
     font-size: larger;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,23 +84,32 @@ Z Index ( z-index ) is a CSS property that defines the order of overlapping HTML
 .catalogueElement{
     height: 4.5vh;
     width: 100%;
+
     display: flex;
     align-items: center;
+
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .sheetElement{
     color: var(--fontColor);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     height: 100%;
-    width: 6rem;
+    min-width: 6rem;  
+
     cursor: pointer;
 }
 
+
 /* 
+The min-width property defines the minimum width of an element.
 The cursor property specifies the mouse cursor to be displayed, when pointing over an element.
-The font-weight property represent how thick or thin characters in text should be displayed
+The font-weight property represent how thick or thin characters in text should be displayed.
 */
 
 .activeSheetElement{
@@ -177,15 +189,15 @@ The font-weight property represent how thick or thin characters in text should b
 }
 
 .assistContainer{
-    height: 2.5vh;
+    min-height: 2.5vh;
     position: absolute;
     display: flex;
     top:7vh;
 }
 
 .labelElement{
-    height: 100%;
-    width: 40px;
+    min-height: 100%;
+    min-width: 40px;
     border-right: thin solid var(--border);
     background-color: var(--taskbarContainer);
     color: var(--fontColor);
@@ -194,8 +206,8 @@ The font-weight property represent how thick or thin characters in text should b
 }
 
 .formulaElement{
-    height: 100%;
-    width: calc(100vw - 40px);
+    min-height: 100%;
+    min-width: calc(100vw - 40px);
     background-color: var(--fontColor);
     outline: none;
     text-align: center
